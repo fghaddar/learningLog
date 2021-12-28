@@ -1,0 +1,20 @@
+{% extends 'learning_logs/base.html' %}
+
+{% block content %} 
+<p>Topic: {{ topic }}</p>
+
+    <p>Entries: </p>
+    <ul>
+        {% for entry in entries %}
+            <li>
+                <p>{{ entry.date_added|date:'M d, Y H:i'  }}</p>                                <!-- The verical line '|' is a template filter: it modifies the valu/format in the template variable -->
+                <p>{{ entry.text|linebreaks }}</p>                                              <!-- linebreaks ensures that the long text entries include line breaks -->
+            </li> 
+        {% empty %}
+            <li>
+                There are no entries for this topic yet.
+            </li>
+        {% endfor %}
+    </ul>
+
+{% endblock content %}
