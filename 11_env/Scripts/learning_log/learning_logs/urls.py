@@ -11,5 +11,8 @@ urlpatterns = [                                                                 
                                                                                                     # Second one species which view function to call.. in this instance it will call views.index
                                                                                                     # Third one is so we can reference this URL pattern in other sections of code
     path('topics/', views.topics, name='topics'),
-    path('topics/<int:topic_id>/', views.topic, name='topic')
+    path('topics/<int:topic_id>/', views.topic, name='topic'),
+    path('new_topic/', views.new_topic, name='new_topic'),
+    path('new_entry/<int:topic_id>/', views.new_entry, name='new_entry'),
+    path('edit_entry/', views.edit_entry, name = 'edit_entry')
 ]
