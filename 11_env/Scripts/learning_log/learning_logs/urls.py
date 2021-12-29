@@ -2,7 +2,9 @@
 
 from django.urls import path                                                                        # Needed to map URLs to views
 from . import views
-app_name = 'learning_logs'                                                                          # Must include the name of the app as specified by the namespace in the root URL
+app_name = 'learning_logs'
+
+                                                                                                    # Must include the name of the app as specified by the namespace in the root URL
 
 urlpatterns = [                                                                                     # A list of individual pages that can be requested from the learning_logs app
 
@@ -14,5 +16,5 @@ urlpatterns = [                                                                 
     path('topics/<int:topic_id>/', views.topic, name='topic'),
     path('new_topic/', views.new_topic, name='new_topic'),
     path('new_entry/<int:topic_id>/', views.new_entry, name='new_entry'),
-    path('edit_entry/', views.edit_entry, name = 'edit_entry')
+    path('edit_entry/', views.edit_entry, name = 'edit_entry'),
 ]

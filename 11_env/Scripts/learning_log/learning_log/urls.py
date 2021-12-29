@@ -21,4 +21,5 @@ from django.urls import include, path
 urlpatterns = [                                                                     # A set of URLs that can be requested from the admin site
     path('admin/', admin.site.urls),
     path('', include('learning_logs.urls', namespace='learning_logs')),             # Include the module learning_logs.urls, and name it learning_logs to distinguish it from other URL's        
+    path('users/', include('users.urls', namespace='users')),
 ]
