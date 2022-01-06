@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin                                                    # This import and the other below import the functions/modules that manage the URLS for the project and admin site
 #from django.conf.urls import include, url                                          # url is deprecated, use path instead (found in import below) 
 from django.urls import include, path
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns                 # For static files and images: Lets us append to urlpatterns so that django can handle the serving up of statis files
 
 
 urlpatterns = [                                                                     # A set of URLs that can be requested from the admin site
@@ -23,3 +24,5 @@ urlpatterns = [                                                                 
     path('', include('learning_logs.urls', namespace='learning_logs')),             # Include the module learning_logs.urls, and name it learning_logs to distinguish it from other URL's        
     path('users/', include('users.urls', namespace='users')),
 ]
+
+urlpatterns += staticfiles_urlpatterns()                                            # For static files and images: Append static files to urlpatterns so that urlpatterns knows how to serve the files

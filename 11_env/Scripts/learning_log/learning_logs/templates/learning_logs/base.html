@@ -1,4 +1,5 @@
-{% load bootstrap3 %}
+{% load bootstrap5 %}
+{% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,42 +14,17 @@
         {% bootstrap_javascript %}
     </head>
     <body>
-        <nav class = "navbar navbar-default navbar-static-top">                                 <!-- selectors style this element (navbar) according to Bootstrap rules. There are 3 selectors for this navigation bar: navbar, navbar-default, navbar-static-top -->
-
-            <div class="container">
-
-                <div class="navbar-header"> 
-                                                                                                <!-- this template causes a button to appear when the window is too narrow to display the whole nav bar. If too narrow, the nav elements will be listed in a drop down list -->
-                    <button type="button" class="navbar-toggle collapsed"
-                        data-toggle="collapse" data-target="#navbar"
-                        aria-expanded="false" aria-controls="navbar">
-                    </button>
-                                                                                                <!--  Set Project name to appear on the far left, and set it up as a link to the home page -->
-                    <a class="navbar-brand" href="{% url 'learning_logs:index' %}"> 
-                        Learning Log</a>
-                </div>
-
-                <div id="navbar" class="navbar-collapse collapse">                              <!-- Set of links that allows the user to navigate the site  -->
-
-                    <ul class="nav navbar-nav">                                                 <!-- Navigation bar start with <ul>, and each item in this bar/list starts with <li>  -->
-                        <li><a href="{% url 'learning_logs:topics' %}">Topics</a></li>
-                    </ul>
-
-                    <ul class="nav navbar-nav navbar-right">                                    <!-- These are also a list of items in the nav bar, but we set these items to the right hand side of the nav bar using navbar-right -->
-                        {% if user.is_authenticated %}
-                            <li><a>Hello, {{ user.username }}.</a></li>
-                            <li><a href="{% url 'users:logout' %}">log out</a></li>
-                        {% else %}
-                            <li><a href="{% url 'users:register' %}">register</a></li>
-                            <li><a href="{% url 'users:login' %}">log in</a></li>
-                        {% endif %}
-                    </ul>
-                
-                </div>
-
+        <nav class="navbar navbar-expand-sm bg-light">
+            <div class="container-fluid">
+  
             </div>
 
+
+
         </nav>
+
+    <img src="{% static 'journal.svg' %}" alt="My image">
+      
 
         <div class="container">
 

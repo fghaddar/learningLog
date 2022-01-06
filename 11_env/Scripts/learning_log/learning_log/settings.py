@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+import os                                                                               # For static files and images
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -40,6 +41,7 @@ INSTALLED_APPS = [                                                              
 
     # Third party apps
     'bootstrap3',
+    'bootstrap5',
 
     # My apps
     'learning_logs',
@@ -122,7 +124,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'                                                                     # For static files and images
+
+STATICFILES_DIRS = (                                                                        # For static files and images
+    os.path.join(BASE_DIR, 'assets'), 
+)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
