@@ -142,3 +142,23 @@ LOGIN_URL = '/users/login/'
 BOOTSTRAP3 = {
     'include_jquery': True,
 }
+
+# Heroku settings
+if os.getcwd() == '/app':                                                       # Get the current working directiory the file is running from. The if test ensures that the settings in this block apply only when the project is deployed on Heroku. This structure allows us to have one settings file that works for our local development environment as well as the live server.
+    import dj_database_url                                                      # import dj_database_url to help configure the database on Heroku
+    DATABASES = {
+    'default': dj_database_url.config(default='postgres://localhost')
+    }
+
+    # Honor the 'X-Forwarded-Proto' header for request.is_secure().
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')               # To support HTTP requests
+
+    # Allow all host headers.
+    ALLOWED_HOSTS = ['*']                                                       # Ensures that Django will serve the project from Heroku’s URL
+
+    # Static asset configuration
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))                       # Set up the project to serve static files correctly on Heroku
+    STATIC_ROOT = 'staticfiles'
+    STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+    )
