@@ -6,20 +6,19 @@
 
 {% block content %}
 
+    <h3> <a href="{% url 'learning_logs:new_topic' %}"> Add a new topic:</a> </h3> <hr>
     <ul>
+        <h4> List of topics: </h4>
         {% for topic in topics %}                                           <!-- Use a template tag to loop through the list -->
             <li> 
-                <h3>
+                <h5>
                     <a href="{% url 'learning_logs:topic' topic.id %}">
                         {{ topic }} </a>
-                </h3>
+                </h5>
             </li>
         {% empty %}                                                         <!-- This checks wehther the list is empty -->
             <li>No topics have been added yet</li>
         {% endfor %}                                                        <!-- In a template, every for loop needs a closing tag -->
     </ul>
-
-    <h3><a href="{% url 'learning_logs:new_topic' %}">
-        Add a new topic:</a></h3>
 
 {% endblock content %}

@@ -1,5 +1,9 @@
 {% extends "learning_logs/base.html" %}
 
+{% block header %}
+        <h1>Login to your account.</h1>
+{% endblock header %}
+
 {% block content %} 
 
     {% if form.errors %}                                                                    <!--- if the forms error is set then we'll assume it's wrong user and pass info   --->

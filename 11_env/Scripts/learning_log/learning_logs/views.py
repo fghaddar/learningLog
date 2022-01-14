@@ -34,7 +34,7 @@ def new_topic(request):
     if request.method != 'POST':                                                        # No data is submitted, so create a blank form
         form = TopicForm()                                                              
     else:                                                                               # Post data submitted; process data
-        form = TopicForm(request.post)                                                  # Make an instance of TopicForm and pass it the data entered by the user stored in request.POST: returns a form object that contain's information submitted by the user                                             
+        form = TopicForm(request.POST)                                                  # Make an instance of TopicForm and pass it the data entered by the user stored in request.POST: returns a form object that contain's information submitted by the user                                             
         if form.is_valid():                                                             # Check if form is valid: all filled in, with valid data entered?
             new_topic = form.save(commit=False)                                         # Assign the new topic to an owner/user before saving the topic
             new_topic.owner = request.user
